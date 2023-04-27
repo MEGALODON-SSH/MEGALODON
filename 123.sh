@@ -138,7 +138,7 @@ cat /dev/null > ~/.bash_history && history -c
 rm /bin/ubuinst* > /dev/null 2>&1
 exit;
 else
-  echo -e 'by: @Mcassador' >/usr/lib/telegram
+  echo -e 'by: @MEGALODON_SSH' >/usr/lib/telegram
   msg -bar
   echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1;37m"
   msg -bar
@@ -192,16 +192,16 @@ function install_continue {
 function install_continue2 {
 cd /bin || exit
 rm pweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/MEGALODON-SSH/SSH-WEB/main/pweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/MEGALODON-SSH/MEGALODON/main/pweb > /dev/null 2>&1
 chmod 777 pweb > /dev/null 2>&1
 clear
 [[ ! -d /bin/ppweb ]] && mkdir /bin/ppweb
 cd /bin/ppweb || exit
 rm *.sh ver* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/MEGALODON-SSH/SSH-WEB/main/verifatt.sh > /dev/null 2>&1
-wget https://raw.githubusercontent.com/MEGALODON-SSH/SSH-WEB/main/verpweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/MEGALODON-SSH/SSH-WEB/main/verweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/MEGALODON-SSH/SSH-WEB/main/whatsapp.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/MEGALODON-SSH/MEGALODON/main/verifatt.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/MEGALODON-SSH/MEGALODON/main/verpweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/MEGALODON-SSH/MEGALODON/main/verweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/MEGALODON-SSH/MEGALODON/main/whatsapp.sh > /dev/null 2>&1
 verp=$(sed -n '1 p' /bin/ppweb/verpweb| sed -e 's/[^0-9]//ig') &>/dev/null
 verw=$(sed -n '1 p' /bin/ppweb/verweb| sed -e 's/[^0-9]//ig') &>/dev/null
 echo -e "$verp" >/bin/ppweb/attpweb
@@ -217,7 +217,6 @@ clear
 function inst_base {
     echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
 apt install apache2 -y > /dev/null 2>&1
-sed -i 's,Listen 80,Listen 81,g' /etc/apache2/ports.conf
 apt install dirmngr apt-transport-https -y > /dev/null 2>&1
 apt install php8.1 libapache2-mod-php8.1 php8.1-xml php8.1-mcrypt php8.1-curl php8.1-mbstring php8.1-cli -y > /dev/null 2>&1
 systemctl restart apache2 > /dev/null 2>&1
@@ -245,7 +244,7 @@ curl -sS https://getcomposer.org/installer | php > /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer > /dev/null 2>&1
 chmod +x /usr/local/bin/composer > /dev/null 2>&1
 cd /var/www/html || exit
-wget https://raw.githubusercontent.com/MEGALODON-SSH/SSH-WEB/main/gestorssh.zip > /dev/null 2>&1
+wget https://raw.githubusercontent.com/MEGALODON-SSH/MEGALODON/main/gestorssh.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
@@ -336,7 +335,7 @@ echo ""
 echo -e "SSH WEB" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "                              \033[1;31mBy @MEGALODON_SSH\033[1;36m" | lolcat
 echo ""
-chave=$(curl -sSL "https://raw.githubusercontent.com/MEGALODON-SSH/SSH-WEB/main/chave") &>/dev/null
+chave=$(curl -sSL "https://raw.githubusercontent.com/MEGALODON-SSH/MEGALODON/main/chave") &>/dev/null
 
 read -p "DIGITE A CHAVE DE INSTALAÇÃO: " key
     
@@ -403,13 +402,13 @@ echo -e "                              \033[1;31mBy @MEGALODON_SSH\033[1;36m" | 
 echo ""
 echo -e "\033[1;32mPAINEL INSTALADO COM SUCESSO!" | lolcat
 echo ""
-echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP:81/admin\033[0m"
+echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP:/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP:81/apps\033[0m"
+echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP:/apps\033[0m"
 echo ""
-echo -e "\033[1;36m PHPMYADMIN:\033[1;37m http://$IP:81/phpmyadmin\033[0m"
+echo -e "\033[1;36m PHPMYADMIN:\033[1;37m http://$IP:/phpmyadmin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m root\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
 echo ""
